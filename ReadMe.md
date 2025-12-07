@@ -45,7 +45,7 @@ NEW MINIMAL DESIGN:
 │         Student Portal              │
 │                           [Logout]  │
 ├─────────────────────────────────────┤
-│ ┌─ My Information ─────────────┐   │
+│ ┌─ My Information ─────────────┐    │
 │ │ Name: Koushik Challa          │   │
 │ │ Roll No: AP24110120           │   │
 │ │ Email: koushik@srmap.edu.in   │   │
@@ -195,6 +195,7 @@ Will show Teacher Portal with student table
 4. **Better Performance** - Less data to process
 
 ---
+
 srms/
 │── src/
 │   ├── srmswindow.h
@@ -211,7 +212,13 @@ srms/
 └── build/  (generated)
 
 ---
-
+To run:
+mkdir -p build
+cd build
+cmake ..
+make -j4
+./srms
+---
 ## 📊 Final Statistics
 
 - Best use for enterprises
@@ -224,10 +231,6 @@ srms/
 
 
 **Your SRMS is now cleaner, simpler, and student-friendly!** 🎉
-mkdir -p build
-cd build
-cmake ..
-make -j4
-./srms
+
 
 
