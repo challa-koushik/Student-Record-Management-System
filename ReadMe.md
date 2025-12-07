@@ -195,24 +195,6 @@ Will show Teacher Portal with student table
 4. **Better Performance** - Less data to process
 
 ---
-
-**Option 1: Fresh Start (Recommended)**
-```bash
-rm srms.db
-./srms-enhanced  # Creates new database
-```
-
-**Option 2: Migrate Data**
-```bash
-# Backup old database
-cp srms.db srms_backup.db
-
-# Run app (new schema created)
-./srms-enhanced
-
-# Manually re-enter critical data
-# Or write migration script
-```
 srms/
 │── src/
 │   ├── srmswindow.h
@@ -232,11 +214,11 @@ srms/
 
 ## 📊 Final Statistics
 
-- **Lines of Code**: Reduced by ~30%
-- **UI Elements**: Reduced by 40%
-- **Database Fields**: Reduced by 35%
-- **User Clicks**: Reduced by 50%
-- **Complexity**: Much simpler!
+- Best use for enterprises
+- Teachers can maintain record
+- Can act as an ERP
+- Mainting more number of students is easier
+- Simple to Use
 
 ---
 
@@ -247,4 +229,5 @@ cd build
 cmake ..
 make -j4
 ./srms
+
 
