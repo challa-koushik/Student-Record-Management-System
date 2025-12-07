@@ -1,116 +1,13 @@
-# ✅ SRMS Simplified - Changes Implemented
+# SRMS 
+The Student Record Management System (SRMS) is a GUI-based desktop app built using Qt, C++, SQLite, and CMake.
+It helps teachers maintain student data and allows students to log in and view their own academic details.
 
-## 🎯 All Your Requested Changes
+This system includes two major portals:
 
-### ✅ 1. Removed Role Selection from Login
-- **Before**: Had to select role (Teacher/Student/Parent/Guest) during login
-- **After**: Role is automatically determined from account type
-- Login now only asks: Username + Password
+👨‍🏫 Teacher Portal: Full control over managing records
 
-### ✅ 2. Removed Confirm Password
-- **Before**: Asked password twice during registration
-- **After**: Single password entry only
+🎓 Student Portal: Secure view-only dashboard
 
-### ✅ 3. Use Roll Number as User ID
-- **Before**: Generated random IDs like `STU12345`, `TCH67890`
-- **After**: Uses roll number directly (e.g., `AP24110120`)
-- Cleaner and more logical
-
-### ✅ 4. Simplified Student Portal
-- **Minimalist Design** with clean layout
-- Shows **Student Information Card** with all credentials:
-  - Name
-  - Roll Number
-  - Email
-  - Branch
-  - Year
-  - Gender
-  - CGPA
-- **Two Simple Tables**:
-  - 📊 My Marks (Subject, Marks, Max Marks, Percentage)
-  - 📅 My Attendance (Subject, Status)
-- **Read-Only**: Students can only view, not edit
-
-### ✅ 5. Removed Search in Student Portal
-- Students don't need search
-- They only see their own data automatically
-
-### ✅ 6. Removed Import/Export CSV
-- Simplified for basic use
-- Teachers directly add students via forms
-
-### ✅ 7. Teacher Portal Improvements
-- **Removed**: Branch/Year filter dropdowns, Search bar, Clear button
-- **Kept**: Simple, clean student list
-- **Improved Edit**: Now simpler input flow
-- **Removed**: Admission Date column
-- **Shortened**: CGPA column display
-
-### ✅ 8. Removed Phone Number
-- **Before**: Students table had phone field
-- **After**: Removed from everywhere (database, forms, display)
-
-### ✅ 9. Enhanced Registration
-- Now collects during registration:
-  - Roll Number ✅
-  - Username ✅
-  - Password ✅
-  - Name ✅
-  - Email ✅
-  - Branch ✅
-  - Year ✅
-  - Gender ✅
-
-### ✅ 10. Removed All Dates
-- **Before**: Admission date, attendance dates
-- **After**: No date fields anywhere
-- Simpler data model
-
----
-
-## 📊 New Simplified Database Schema
-
-```sql
-users (
-    roll_no TEXT PRIMARY KEY,     -- Using roll number as ID
-    username TEXT,
-    password TEXT,
-    role TEXT                      -- TEACHER or STUDENT only
-)
-
-students (
-    roll_no TEXT PRIMARY KEY,
-    name TEXT,
-    email TEXT,
-    branch TEXT,
-    year INTEGER,
-    gender TEXT,
-    cgpa REAL
-)
--- Removed: phone, admission_date
-
-marks (
-    mark_id INTEGER PRIMARY KEY,
-    roll_no TEXT,
-    subject TEXT,
-    marks INTEGER,
-    max_marks INTEGER,
-    exam_type TEXT
-)
--- Removed: semester, date
-
-attendance (
-    attendance_id INTEGER PRIMARY KEY,
-    roll_no TEXT,
-    status TEXT,
-    subject TEXT
-)
--- Removed: date
-```
-
----
-
-## 🎨 UI Comparison
 
 ### Login Screen
 ```
@@ -183,14 +80,14 @@ Simple, clean, no clutter!
 
 ### Step 1: Replace Files
 Make sure you have these 8 files:
-1. `main.cpp` (unchanged)
-2. `srmswindow.h` (updated)
-3. `srmswindow.cpp` (updated)
-4. `marksdialog.h` (updated)
-5. `marksdialog.cpp` (updated)
-6. `attendancedialog.h` (updated)
-7. `attendancedialog.cpp` (updated)
-8. `CMakeLists.txt` (updated)
+1. `main.cpp`
+2. `srmswindow.h`
+3. `srmswindow.cpp` 
+4. `marksdialog.h` 
+5. `marksdialog.cpp` 
+6. `attendancedialog.h` 
+7. `attendancedialog.cpp` 
+8. `CMakeLists.txt` 
 
 ### Step 2: Clean Build
 ```bash
@@ -210,7 +107,7 @@ make
 1. Username: admin
 2. Password: admin123
 3. Click LOGIN
-✅ Should show Teacher Portal with student table
+Will show Teacher Portal with student table
 ```
 
 ### Test 2: Create Student Account
@@ -277,22 +174,6 @@ make
 
 ---
 
-## 🎯 Key Improvements
-
-| Aspect | Before | After |
-|--------|--------|-------|
-| **Login Fields** | 3 (username, password, role) | 2 (username, password) |
-| **Registration Fields** | 5 | 8 (more complete) |
-| **User ID** | Random (STU123) | Roll Number (AP001) |
-| **Teacher Buttons** | 9 | 5 (cleaner) |
-| **Student Portal** | Complex | Minimal & focused |
-| **Database Tables** | 4 with 15+ columns | 4 with 10 columns |
-| **Date Fields** | 3 | 0 (all removed) |
-| **Phone Field** | Yes | No (removed) |
-| **CGPA Display** | Long decimal | Short format |
-
----
-
 ## 💡 What Makes It Better
 
 ### For Students:
@@ -315,10 +196,6 @@ make
 
 ---
 
-## 🔄 Migration from Old Version
-
-If you have existing `srms.db`:
-
 **Option 1: Fresh Start (Recommended)**
 ```bash
 rm srms.db
@@ -336,6 +213,20 @@ cp srms.db srms_backup.db
 # Manually re-enter critical data
 # Or write migration script
 ```
+srms/
+│── src/
+│   ├── srmswindow.h
+│   ├── srmswindow.cpp
+│   ├── marksdialog.h
+│   ├── marksdialog.cpp
+│   ├── attendancedialog.h
+│   ├── attendancedialog.cpp
+│   └── main.cpp
+│
+│── CMakeLists.txt
+│── README.md
+│── srms.db (auto created)
+└── build/  (generated)
 
 ---
 
@@ -349,23 +240,6 @@ cp srms.db srms_backup.db
 
 ---
 
-## ✅ All Requirements Met!
-
-Every single change you requested has been implemented:
-1. ✅ No role selection in login
-2. ✅ No confirm password
-3. ✅ Roll number as ID
-4. ✅ Minimal student portal
-5. ✅ Student credentials displayed
-6. ✅ No search in student portal
-7. ✅ No import/export
-8. ✅ Teacher portal cleaned
-9. ✅ Improved edit
-10. ✅ Shorter CGPA display
-11. ✅ No admission date
-12. ✅ No phone number
-13. ✅ Enhanced registration
-14. ✅ All dates removed
 
 **Your SRMS is now cleaner, simpler, and student-friendly!** 🎉
 mkdir -p build
@@ -373,3 +247,4 @@ cd build
 cmake ..
 make -j4
 ./srms
+
