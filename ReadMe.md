@@ -4,9 +4,8 @@ It helps teachers maintain student data and allows students to log in and view t
 
 This system includes two major portals:
 
-👨‍🏫 Teacher Portal: Full control over managing records
-
-🎓 Student Portal: Secure view-only dashboard
+Teacher Portal: Full control over managing records
+Student Portal: Secure view-only dashboard
 
 
 ### Login Screen
@@ -25,7 +24,7 @@ BEFORE:                         AFTER:
 ```
 BEFORE:                                  AFTER:
 ┌────────────────────────────────┐      ┌────────────────────────────┐
-│ Search: [______] [🔍] [Clear]  │      │                            │ ← REMOVED
+│ Search: [______] [Clear]       │      │                            │ ← REMOVED
 │ Branch: [▼] Year: [▼]          │      │                            │ ← REMOVED
 │ ───────────────────────────────│      │ ──────────────────────────│
 │ [Add] [Edit] [Delete]          │      │ [Add] [Edit] [Delete]      │
@@ -55,7 +54,7 @@ NEW MINIMAL DESIGN:
 │ │ CGPA: 8.5                     │   │
 │ └───────────────────────────────┘   │
 │                                     │
-│ 📊 My Marks                         │
+│    My Marks                         │
 │ ┌───────────────────────────────┐   │
 │ │ Subject │ Marks │ Max │ %     │   │
 │ │─────────┼───────┼─────┼───────│   │
@@ -63,7 +62,7 @@ NEW MINIMAL DESIGN:
 │ │ DBMS    │ 90    │ 100 │ 90%   │   │
 │ └───────────────────────────────┘   │
 │                                     │
-│ 📅 My Attendance                    │
+│    My Attendance                    │
 │ ┌───────────────────────────────┐   │
 │ │ Subject      │ Status         │   │
 │ │──────────────┼────────────────│   │
@@ -76,7 +75,7 @@ Simple, clean, no clutter!
 
 ---
 
-## 🚀 How to Build
+##  How to Build
 
 ### Step 1: Replace Files
 Make sure you have these 8 files:
@@ -100,7 +99,7 @@ make
 
 ---
 
-## 📝 Testing Guide
+##  Testing Guide
 
 ### Test 1: Teacher Login
 ```
@@ -123,7 +122,7 @@ Will show Teacher Portal with student table
    - Year: 2
    - Gender: Male
 3. Click OK through all dialogs
-✅ Account created message appears
+ Account created message appears
 ```
 
 ### Test 3: Student Login
@@ -131,7 +130,7 @@ Will show Teacher Portal with student table
 1. Username: john
 2. Password: john123
 3. Click LOGIN
-✅ Should show Student Portal with:
+ Should show Student Portal with:
    - Personal info card
    - Empty marks table (no marks yet)
    - Empty attendance table (no attendance yet)
@@ -148,7 +147,7 @@ Will show Teacher Portal with student table
    - Exam Type: Mid-Term
 5. Click Add
 6. Click Calculate CGPA
-✅ CGPA calculated and updated
+ CGPA calculated and updated
 ```
 
 ### Test 5: Teacher Marks Attendance
@@ -159,14 +158,14 @@ Will show Teacher Portal with student table
 4. Click Load Students
 5. Check John's checkbox (mark present)
 6. Click Save
-✅ Attendance saved
+ Attendance saved
 ```
 
 ### Test 6: Student Views Data
 ```
 1. Logout teacher
 2. Login as john/john123
-✅ Should now see:
+  Should now see:
    - CGPA: 8.5 (or calculated value)
    - Marks table with Data Structures entry
    - Attendance table showing Present
@@ -174,7 +173,7 @@ Will show Teacher Portal with student table
 
 ---
 
-## 💡 What Makes It Better
+##  What Makes It Better
 
 ### For Students:
 1. **Clean Interface** - No confusing options
@@ -219,7 +218,7 @@ cmake ..
 make -j4
 ./srms
 ---
-## 📊 Final Statistics
+##  Final Statistics
 
 - Best use for enterprises
 - Teachers can maintain record
@@ -230,7 +229,4 @@ make -j4
 ---
 
 
-**Your SRMS is now cleaner, simpler, and student-friendly!** 🎉
-
-
-
+**Your SRMS is now cleaner, simpler, and student-friendly!** 
